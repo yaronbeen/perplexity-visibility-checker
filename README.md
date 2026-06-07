@@ -31,18 +31,19 @@ Browser ──► Cloudflare Worker (same-origin proxy) ──► Bright Data Pe
 
 1. You enter a **brand**, a **buyer question**, a **location**, and **your own
    Bright Data token**.
-2. The Worker triggers the Perplexity scraper (`gd_m7dhdot1vw9a7gc1n`) and returns
-   a snapshot ID.
-3. The page polls until the run is `ready` (~30s), then renders the answer, the
-   full ranked citation list, "people also ask", and a verdict.
+2. The Worker calls the Perplexity scraper (`gd_m7dhdot1vw9a7gc1n`) via the
+   synchronous `/scrape` endpoint; it usually returns the result inline (~30s),
+   falling back to a snapshot ID the page polls for slower runs.
+3. It renders the answer, the ranked source list, "people also ask", and a result.
 4. Export as Markdown, JSON, or CSV.
 
 | Engine | Dataset ID | Key inputs |
 | --- | --- | --- |
 | Perplexity | `gd_m7dhdot1vw9a7gc1n` | `url, prompt, country, index` |
 
-Unlike ChatGPT, Perplexity **always** returns a ranked source list — which makes
-it the cleanest signal of all for AI search visibility.
+Perplexity answers are built around a ranked source list, so it's usually the
+clearest place to see whether your domain is cited — when the model returns
+sources at all (occasionally it returns none).
 
 ---
 

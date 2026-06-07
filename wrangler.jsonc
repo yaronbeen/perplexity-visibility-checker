@@ -18,6 +18,12 @@
         "type": "ratelimit",
         "namespace_id": "2002",
         "simple": { "limit": 15, "period": 60 }
+      },
+      {
+        "name": "POLL_RL",
+        "type": "ratelimit",
+        "namespace_id": "2102",
+        "simple": { "limit": 120, "period": 60 }
       }
     ]
   }
