@@ -1,0 +1,13 @@
+{
+  "name": "perplexity-visibility-checker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "See whether Perplexity cites your brand as a source. Live citation checker powered by Bright Data.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.86.0"
+  }
+}
